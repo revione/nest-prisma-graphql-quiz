@@ -1,0 +1,15 @@
+version: '3'
+services:
+  db:
+    # image: postgres:13
+    image: postgres:14-alpine
+    container_name: prisma-graphql
+    environment:
+      POSTGRES_USER: rev
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: etwas
+    ports:
+      - 5432:5432
+    volumes:
+      - './db/postgres:/var/lib/postgresql/data'
+
