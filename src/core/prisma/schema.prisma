@@ -29,18 +29,18 @@ model Question {
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
   content    String
-  answers    Answer[]
-  category   Category @relation(fields: [categoryId], references: [id])
   categoryId String
+  category   Category @relation(fields: [categoryId], references: [id])
+  answers    Answer[]
 }
 
 model Answer {
   id         String   @id @default(cuid())
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
-  question   Question @relation(fields: [questionId], references: [id])
   questionId String
   content    String
   isCorrect  Boolean  @default(false)
   url        String
+  question   Question @relation(fields: [questionId], references: [id])
 }
