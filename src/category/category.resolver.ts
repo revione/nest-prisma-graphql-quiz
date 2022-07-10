@@ -1,4 +1,3 @@
-import { NotFoundException } from '@nestjs/common';
 import { Resolver, Query, Args, Mutation } from '@nestjs/graphql';
 import { Category } from './category';
 import { CategoryService } from './category.service';
