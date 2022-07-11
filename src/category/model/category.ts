@@ -1,4 +1,5 @@
 import { ObjectType, Field, ID } from '@nestjs/graphql';
+import { Question } from 'src/question/model/question';
 
 @ObjectType()
 export class Category {
@@ -14,5 +15,6 @@ export class Category {
   @Field({ nullable: true })
   name: string;
 
-  // questions: Questions[];
+  @Field(() => [Question])
+  questions: Question[];
 }
