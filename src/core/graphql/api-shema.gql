@@ -36,6 +36,33 @@ type Category {
   questions: [Question!]!
 }
 
+type QuizAnswer {
+  id: String
+  content: String
+}
+
+type QuizCategory {
+  id: String
+  name: String
+}
+
+type Quiz {
+  id: String
+  content: String
+  answers: [QuizAnswer!]
+  category: QuizCategory
+  createdAt: DateTime
+}
+
+type Metadata {
+  url: String
+}
+
+type QuizResult {
+  result: Boolean
+  metadata: Metadata
+}
+
 type Query {
   categories: [Category!]!
   category(id: String!): Category!
@@ -43,6 +70,17 @@ type Query {
   question(id: String!): Question!
   answers: [Answer!]!
   answer(id: String!): Answer!
+  quiz(input: QuizDTO!): Quiz!
+  doQuiz(input: CheckAnswerDTO!): QuizResult!
+}
+
+input QuizDTO {
+  categoryId: String
+}
+
+input CheckAnswerDTO {
+  quizId: String
+  selectedAnswerId: String
 }
 
 type Mutation {
