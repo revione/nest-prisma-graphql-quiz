@@ -145,3 +145,7 @@ query GetResult {
     }
   }
 }
+
+# Video
+
+https://www.youtube.com/watch?v=5I2liR4uns8&ab_channel=FaztCode
